@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from enum import StrEnum, auto
+from enum import Enum
 from typing import Any
 
 from torch import Tensor
@@ -11,7 +11,7 @@ from cebmf_torch.ebnm.point_laplace import ebnm_point_laplace
 from .base import Prior, PriorBuilder
 
 
-class PointPriorType(StrEnum):
+class PointPriorType(str, Enum):
     """
     Enum for point prior types.
 
@@ -23,9 +23,9 @@ class PointPriorType(StrEnum):
         Exponential prior.
     """
 
-    LAPLACE = auto()
-    EXP = auto()
-    GBINARY = auto()
+    LAPLACE = "laplace"
+    EXP = "exp"
+    GBINARY = "gbinary"
 
 
 builder_functions: dict[PointPriorType, Callable] = {

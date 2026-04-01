@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from enum import StrEnum, auto
+from enum import Enum
 from typing import Any
 
 from torch import Tensor
@@ -13,7 +13,7 @@ from cebmf_torch.cebnm.spiked_emdn import spiked_emdn_posterior_means
 from .base import Prior, PriorBuilder
 
 
-class LearnedPriorType(StrEnum):
+class LearnedPriorType(str, Enum):
     """
     Enum for learned prior types.
 
@@ -31,11 +31,11 @@ class LearnedPriorType(StrEnum):
         Spiked Empirical Mixture Density Network prior.
     """
 
-    CASH = auto()
-    CGB = auto()
-    CGB_SHARP = auto()
-    EMDN = auto()
-    SPIKED_EMDN = auto()
+    CASH = "cash"
+    CGB = "cgb"
+    CGB_SHARP = "cgb_sharp"
+    EMDN = "emdn"
+    SPIKED_EMDN = "spiked_emdn"
 
 
 builder_functions: dict[LearnedPriorType, Callable] = {

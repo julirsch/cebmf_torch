@@ -1,4 +1,4 @@
-from enum import StrEnum, auto
+from enum import Enum
 from typing import Any
 
 from torch import Tensor
@@ -8,7 +8,7 @@ from cebmf_torch.ebnm.ash import ash
 from .base import Prior, PriorBuilder
 
 
-class MixturePriorType(StrEnum):
+class MixturePriorType(str, Enum):
     """
     Enum for mixture prior types.
 
@@ -20,8 +20,8 @@ class MixturePriorType(StrEnum):
         Exponential mixture prior.
     """
 
-    NORM = auto()
-    EXP = auto()
+    NORM = "norm"
+    EXP = "exp"
 
 
 class ASHBuilder(PriorBuilder):
