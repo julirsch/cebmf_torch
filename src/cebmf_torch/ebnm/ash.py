@@ -2,7 +2,7 @@
 import math
 from collections.abc import Callable
 from dataclasses import dataclass
-from enum import StrEnum, auto
+from enum import Enum
 
 import torch
 
@@ -22,9 +22,9 @@ from cebmf_torch.utils.posterior import (
 )
 
 
-class PriorType(StrEnum):
-    NORM = auto()
-    EXP = auto()
+class PriorType(str, Enum):
+    NORM = "norm"
+    EXP = "exp"
 
 
 @dataclass

@@ -1,6 +1,6 @@
 import math
 from dataclasses import dataclass
-from enum import StrEnum, auto
+from enum import Enum
 from warnings import warn
 
 import torch
@@ -39,10 +39,10 @@ class CEBMFResult:
     history_obj: list
 
 
-class NoiseType(StrEnum):
-    CONSTANT = auto()
-    ROW_WISE = auto()
-    COLUMN_WISE = auto()
+class NoiseType(str, Enum):
+    CONSTANT = "constant"
+    ROW_WISE = "row_wise"
+    COLUMN_WISE = "column_wise"
 
 
 @dataclass
