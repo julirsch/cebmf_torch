@@ -37,6 +37,9 @@ class LearnedPriorType(str, Enum):
     EMDN = "emdn"
     SPIKED_EMDN = "spiked_emdn"
 
+    def __str__(self):
+        return self.value
+
 
 builder_functions: dict[LearnedPriorType, Callable] = {
     LearnedPriorType.CASH: cash_posterior_means,

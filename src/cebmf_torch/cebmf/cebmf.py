@@ -44,6 +44,9 @@ class NoiseType(str, Enum):
     ROW_WISE = "row_wise"
     COLUMN_WISE = "column_wise"
 
+    def __str__(self):
+        return self.value
+
 
 @dataclass
 class ModelParams:

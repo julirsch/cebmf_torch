@@ -26,6 +26,9 @@ class PriorType(str, Enum):
     NORM = "norm"
     EXP = "exp"
 
+    def __str__(self):
+        return self.value
+
 
 @dataclass
 class AshConfig:

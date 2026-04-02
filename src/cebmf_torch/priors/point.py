@@ -27,6 +27,9 @@ class PointPriorType(str, Enum):
     EXP = "exp"
     GBINARY = "gbinary"
 
+    def __str__(self):
+        return self.value
+
 
 builder_functions: dict[PointPriorType, Callable] = {
     PointPriorType.LAPLACE: ebnm_point_laplace,
