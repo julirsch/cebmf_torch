@@ -106,8 +106,8 @@ def test_all_parameters():
         assert model.noise.type == NoiseType.ROW_WISE
 
         # Check covariate params
-        assert torch.equal(model.covariate.X_l, X_l)
-        assert torch.equal(model.covariate.X_f, X_f)
+        assert torch.equal(model.covariate.X_l, X_l.to(model.device))
+        assert torch.equal(model.covariate.X_f, X_f.to(model.device))
         assert model.covariate.self_row_cov is True
         assert model.covariate.self_col_cov is True
 

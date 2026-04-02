@@ -37,7 +37,7 @@ def test_cash_posterior_means_mse(n_samples):
     )
 
     # Compute mean squared error between posterior mean and truth
-    mse = torch.mean((res.post_mean - xtrue).pow(2)).item()
+    mse = torch.mean((res.post_mean - xtrue.to(res.post_mean.device)).pow(2)).item()
     print("Test MSE:", mse)
 
     # Check threshold
